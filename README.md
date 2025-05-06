@@ -25,3 +25,16 @@ This repository demonstrates a data pipeline using:
    ```bash
    git clone https://github.com/pjlau/dask-echarts-fastapi-demo.git
    cd dask-echarts-fastapi-demo
+
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+
+3. Run the FastAPI server:
+   ```bash
+   uvicorn src.backend.main:app --reload
+
+- Open http://localhost:8000 in your browser to view the Sankey diagram.
+
+- Verify the API endpoint by visiting http://localhost:8000/api/sankey-data.
+
