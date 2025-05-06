@@ -38,3 +38,8 @@ This repository demonstrates a data pipeline using:
 
 - Verify the API endpoint by visiting http://localhost:8000/api/sankey-data.
 
+## Results
+
+<img src="images/demo_fig1.png" alt="Example1" width="600">
+<br>
+<img src="images/demo_fig2.png" alt="Example2" width="600">
