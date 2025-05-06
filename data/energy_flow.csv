@@ -1,0 +1,9 @@
+source,target,value
+Solar,Grid,100
+Wind,Grid,80
+Grid,Factory,120
+Grid,Residential,50
+Factory,Production,80
+Factory,Waste,40
+Residential,Heating,30
+Residential,Appliances,20

@@ -1,0 +1,41 @@
+<!-- src/frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dask + ECharts + FastAPI Demo</title>
+    <style>
+        body { margin: 0; font-family: Arial, sans-serif; }
+        #chart { width: 100%; height: 600px; }
+    </style>
+</head>
+<body>
+    <div id="chart"></div>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+    <script>
+        // Initialize ECharts
+        const chart = echarts.init(document.getElementById('chart'));
+
+        // Fetch data from FastAPI
+        fetch('/api/sankey-data')
+            .then(response => response.json())
+            .then(data => {
+                // Configure Sankey diagram
+                const option = {
+                    title: { text: 'Energy Flow Sankey Diagram' },
+                    tooltip: { trigger: 'item', triggerOn: 'mousemove' },
+                    series: [{
+                        type: 'sankey',
+                        data: data.nodes,
+                        links: data.links,
+                        emphasis: { focus: 'adjacency' },
+                        lineStyle: { color: 'source', curveness: 0.5 }
+                    }]
+                };
+                chart.setOption(option);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    </script>
+</body>
+</html>
